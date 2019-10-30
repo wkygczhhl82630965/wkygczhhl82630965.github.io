@@ -1,0 +1,20 @@
+name: "Yay internet!"
+output_dir: "."
+navbar:
+  title: "Home"
+  right:
+    - text: "About Me"
+      href: about.html
+    - text: Examples
+      menu: 
+      - text: "Plotly"
+        href: plotly.html
+      - text: "Dashboard"
+        href: dashboard.html
+    - icon: fa-envelope fa-lg
+      href: mailto:<wky82630965@gmail.com>
+    - icon: fa-github fa-lg
+      href: http://github.com/wkygczhhl82630965/
+output:
+  html_document:
+    theme: journal

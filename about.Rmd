@@ -1,0 +1,10 @@
+---
+title: "About Me"
+output: 
+  html_document:
+    toc: true
+    toc_float: true
+---
+
+![](images/cv.jpg)
+

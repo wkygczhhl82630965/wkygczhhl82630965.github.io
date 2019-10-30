@@ -1,0 +1,17 @@
+---
+title: "My awesome website"
+output: 
+  html_document:
+    toc: true
+    toc_float: true
+---
+
+# This is Keyi's awesome website
+
+You can learn about me [here](about.html)
+
+![](https://media.giphy.com/media/NS7gPxeumewkWDOIxi/giphy.gif)
+
+
+
+
