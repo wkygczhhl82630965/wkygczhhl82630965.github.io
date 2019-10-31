@@ -24,7 +24,7 @@ data("instacart")
 
 
 ```{r}
-instacart %>%
+bar = instacart %>%
 select(aisle_id) %>%
   count(aisle_id) %>%
 mutate(
@@ -42,18 +42,13 @@ mutate(
     x = "Aisle ID",
     y = "Number of Items Ordered"
   ) 
-
-```
-
-```{r}
-
-
+ggplotly(bar)
 
 
 ```
 
 ```{r}
-instacart %>%
+line = instacart %>%
 select(department,order_hour_of_day,aisle) %>%
 arrange(order_hour_of_day)%>%
 group_by(department,order_hour_of_day)%>%
@@ -68,6 +63,29 @@ summarize(number_ordered = sum(n)) %>%
     x = "Hour in a day",
     y = "Number Of Items ordered"
   )
+ggplotly(line)
+
 
 ```
+
+
+```{r}
+instacart %>%
+select(department,aisle) %>%
+group_by(department,aisle)%>%
+count(aisle)%>%
+summarize(number_ordered = sum(n)) %>%
+plot_ly(x = ~department, y = ~number_ordered, type = "box",
+          colors = "Set2") %>%
+  layout(
+    title = "Boxplot of number of aisle selection among departments",
+    xaxis = list(title = ("Department")),
+    yaxis = list(title = ("Number of Items Ordered"))
+  )
+  
+
+
+
+```
+
 
