@@ -24,7 +24,6 @@ data("instacart")
 
 
 ```{r}
-
 instacart %>%
 select(aisle_id) %>%
   count(aisle_id) %>%
