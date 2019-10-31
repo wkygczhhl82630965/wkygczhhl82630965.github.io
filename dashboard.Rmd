@@ -91,6 +91,5 @@ plot_ly(x = ~department, y = ~number_ordered, type = "box",
     yaxis = list(title = ("Number of Items Ordered"))
   )
 
-
 ```
 
