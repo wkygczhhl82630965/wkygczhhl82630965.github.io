@@ -12,10 +12,13 @@ You can learn more about me [here](about.html)
 
 ![](https://media.giphy.com/media/NS7gPxeumewkWDOIxi/giphy.gif)
 
-## let's add some awsome food images
+## Let's add some awsome food images! 
 
-Really enjoyed the food in NY!!
+I really enjoyed the food in NY!
 ![](images/food_1.jpg)
 ![](images/food_2.jpg)
 ![](images/food_3.jpg)
+
+## Some useful links 
+If you are interested in instituitions that I has attended, refer to the official websites of [University of Washington](https://www.washington.edu) and [Columbia University](https://www.columbia.edu) !
 
