@@ -24,7 +24,7 @@ data("instacart")
 
 ```
 
-Column {data-width=650}
+Column {data-width=500}
 -----------------------------------------------------------------------
 
 ### Chart A
@@ -50,10 +50,10 @@ mutate(
   ) 
 ```
 
-Column {data-width=350}
+Column {data-width=500}
 -----------------------------------------------------------------------
 
-### Chart B
+### Chart B 
 ```{r}
 instacart %>%
 select(department,order_hour_of_day,aisle) %>%
