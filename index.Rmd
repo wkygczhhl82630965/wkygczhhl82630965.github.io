@@ -1,5 +1,5 @@
 ---
-title: "My awesome website"
+title: "My First Website!"
 output: 
   html_document:
     toc: true
@@ -8,7 +8,7 @@ output:
 
 # This is Keyi's awesome website
 
-You can learn about me [here](about.html)
+You can learn more about me [here](about.html)
 
 ![](https://media.giphy.com/media/NS7gPxeumewkWDOIxi/giphy.gif)
 

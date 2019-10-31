@@ -12,7 +12,7 @@
 
 
 
-<title>My First Website!</title>
+<title>Plotly Examples</title>
 
 <script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -24,6 +24,7 @@
 <link href="site_libs/tocify-1.9.1/jquery.tocify.css" rel="stylesheet" />
 <script src="site_libs/tocify-1.9.1/jquery.tocify.js"></script>
 <script src="site_libs/navigation-1.1/tabsets.js"></script>
+<script src="site_libs/navigation-1.1/codefolding.js"></script>
 <link href="site_libs/highlightjs-9.12.0/default.css" rel="stylesheet" />
 <script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
 <link href="site_libs/font-awesome-5.1.0/css/all.css" rel="stylesheet" />
@@ -250,6 +251,9 @@ $(document).ready(function () {
 </style>
 
 <!-- code folding -->
+<style type="text/css">
+.code-folding-btn { margin-bottom: 4px; }
+</style>
 
 
 
@@ -383,17 +387,60 @@ div.tocify {
 
 <div class="fluid-row" id="header">
 
+<div class="btn-group pull-right">
+<button type="button" class="btn btn-default btn-xs dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span>Code</span> <span class="caret"></span></button>
+<ul class="dropdown-menu" style="min-width: 50px;">
+<li><a id="rmd-show-all-code" href="#">Show All Code</a></li>
+<li><a id="rmd-hide-all-code" href="#">Hide All Code</a></li>
+</ul>
+</div>
 
 
-<h1 class="title toc-ignore">My First Website!</h1>
+
+<h1 class="title toc-ignore">Plotly Examples</h1>
 
 </div>
 
 
-<div id="this-is-keyis-awesome-website" class="section level1">
-<h1>This is Keyi’s awesome website</h1>
-<p>You can learn more about me <a href="about.html">here</a></p>
-<p><img src="https://media.giphy.com/media/NS7gPxeumewkWDOIxi/giphy.gif" /></p>
+<p>My name is Keyi and I make website <em>with interactive graphics</em></p>
+<div id="lets-make-some-plots" class="section level2">
+<h2>let’s make some plots</h2>
+<pre class="r"><code>data(&quot;instacart&quot;)</code></pre>
+<pre class="r"><code>instacart %&gt;%
+select(aisle_id) %&gt;%
+  count(aisle_id) %&gt;%
+mutate(
+  number_of_item = n
+) %&gt;%
+  arrange(desc(number_of_item)) %&gt;%
+  filter(number_of_item &gt; 15000) %&gt;%
+  mutate(
+   aisle_id = factor(aisle_id),
+  aisle_id = forcats::fct_reorder(aisle_id, number_of_item )) %&gt;%
+ ggplot(aes(x = aisle_id, y = number_of_item,color = aisle_id))+
+  geom_col() +
+  labs(
+    title = &quot;Plot of Aisles Ordered More Than 10000 Items&quot;,
+    x = &quot;Aisle ID&quot;,
+    y = &quot;Number of Items Ordered&quot;
+  ) </code></pre>
+<p><img src="plotly_files/figure-html/unnamed-chunk-2-1.png" width="672" /></p>
+<pre class="r"><code>instacart %&gt;%
+select(department,order_hour_of_day,aisle) %&gt;%
+arrange(order_hour_of_day)%&gt;%
+group_by(department,order_hour_of_day)%&gt;%
+count(aisle)%&gt;%
+group_by(department,order_hour_of_day)%&gt;%
+summarize(number_ordered = sum(n)) %&gt;%
+  ggplot(aes(x = order_hour_of_day,
+             y = number_ordered,color = department)) +
+  geom_line() +
+  labs(
+    title = &quot; Plot of Number of Items Odered with 24h among Departments &quot;,
+    x = &quot;Hour in a day&quot;,
+    y = &quot;Number Of Items ordered&quot;
+  )</code></pre>
+<p><img src="plotly_files/figure-html/unnamed-chunk-4-1.png" width="672" /></p>
 </div>
 
 
@@ -431,6 +478,11 @@ $(document).ready(function () {
 </script>
 
 <!-- code folding -->
+<script>
+$(document).ready(function () {
+  window.initializeCodeFolding("hide" === "show");
+});
+</script>
 
 <script>
 $(document).ready(function ()  {

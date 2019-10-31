@@ -1,35 +1,30 @@
 ---
-title: "My first dashboard"
+title: "Plotly Examples"
 output: 
-  flexdashboard::flex_dashboard:
-    orientation: columns
-    vertical_layout: fill
+  html_document:
+    code_folding: hide
+    toc: true
+    toc_float: true
 ---
 
+My name is Keyi and I make website _with interactive graphics_
+
 ```{r setup, include=FALSE}
-library(flexdashboard)
 library(tidyverse)
 library(viridis)
 library(p8105.datasets)
 library(plotly)
 ```
 
+## let's make some plots
+
 ```{r}
-library(tidyverse)
-library(viridis)
-library(p8105.datasets)
-library(plotly)
 data("instacart")
-
-
 ```
 
-Column {data-width=650}
------------------------------------------------------------------------
-
-### Chart A
 
 ```{r}
+
 instacart %>%
 select(aisle_id) %>%
   count(aisle_id) %>%
@@ -48,12 +43,16 @@ mutate(
     x = "Aisle ID",
     y = "Number of Items Ordered"
   ) 
+
 ```
 
-Column {data-width=350}
------------------------------------------------------------------------
+```{r}
 
-### Chart B
+
+
+
+```
+
 ```{r}
 instacart %>%
 select(department,order_hour_of_day,aisle) %>%
@@ -71,11 +70,7 @@ summarize(number_ordered = sum(n)) %>%
     y = "Number Of Items ordered"
   )
 
-```
 
-### Chart C
-
-```{r}
 
 ```
 
