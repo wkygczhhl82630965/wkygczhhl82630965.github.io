@@ -11,6 +11,7 @@ output:
 You can learn more about me [here](about.html)
 
 ![](https://media.giphy.com/media/NS7gPxeumewkWDOIxi/giphy.gif)
+
 ## let's add some awsome food images
 
 Really enjoyed the food in NY!!
