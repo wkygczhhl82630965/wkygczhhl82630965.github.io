@@ -5,12 +5,8 @@ navbar:
   right:
     - text: "Resume"
       href: about.html
-    - text: Examples
-      menu: 
-      - text: "Plotly"
-        href: plotly.html
-      - text: "Dashboard"
-        href: dashboard.html
+    - text: "Dashboard"
+      href: dashboard.html
     - icon: fa-envelope fa-lg
       href: mailto:<wky82630965@gmail.com>
     - icon: fa-github fa-lg
