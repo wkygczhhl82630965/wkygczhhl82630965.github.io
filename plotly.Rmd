@@ -75,6 +75,8 @@ select(department,aisle) %>%
 group_by(department,aisle)%>%
 count(aisle)%>%
 summarize(number_ordered = sum(n)) %>%
+ungroup%>%
+mutate(department = fct_reorder(department, number_ordered)) %>% 
 plot_ly(x = ~department, y = ~number_ordered, type = "box",
           colors = "Set2") %>%
   layout(
