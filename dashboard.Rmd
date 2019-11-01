@@ -27,10 +27,10 @@ data("instacart")
 Column {data-width=500}
 -----------------------------------------------------------------------
 
-### hart A Plot of Aisles Ordered More Than 10000 Items
+### Chart A Plot of Aisles Ordered More Than 10000 Items
 
 ```{r}
-instacart %>%
+a = instacart %>%
 select(aisle_id) %>%
   count(aisle_id) %>%
 mutate(
@@ -48,6 +48,8 @@ mutate(
     x = "Aisle ID",
     y = "Number of Items Ordered"
   ) 
+ggplotly(a)
+
 ```
 
 Column {data-width=500}
@@ -55,7 +57,7 @@ Column {data-width=500}
 
 ### Chart B Boxplot of number of aisle selection among departments 
 ```{r}
-instacart %>%
+b = instacart %>%
 select(department,order_hour_of_day,aisle) %>%
 arrange(order_hour_of_day)%>%
 group_by(department,order_hour_of_day)%>%
@@ -70,6 +72,8 @@ summarize(number_ordered = sum(n)) %>%
     x = "Hour in a day",
     y = "Number Of Items ordered"
   )
+ggplotly(b)
+
 
 ```
 
@@ -84,8 +88,7 @@ summarize(number_ordered = sum(n)) %>%
   drop_na()%>%
 ungroup%>%
 mutate(department = fct_reorder(department, number_ordered)) %>% 
-plot_ly(x = ~department, y = ~number_ordered, type = "box",
-          colors = "Set2") %>%
+plot_ly(x = ~department, y = ~number_ordered, color =~ department,type = "box") %>%
   layout(
     #title = "Boxplot of number of aisle selection among departments",
     xaxis = list(title = ("Department")),
