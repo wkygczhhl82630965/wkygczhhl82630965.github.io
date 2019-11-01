@@ -27,7 +27,7 @@ data("instacart")
 Column {data-width=500}
 -----------------------------------------------------------------------
 
-### Chart A
+### hart A Plot of Aisles Ordered More Than 10000 Items
 
 ```{r}
 instacart %>%
@@ -44,7 +44,7 @@ mutate(
  ggplot(aes(x = aisle_id, y = number_of_item,color = aisle_id))+
   geom_col() +
   labs(
-    title = "Plot of Aisles Ordered More Than 10000 Items",
+    #title = "Plot of Aisles Ordered More Than 10000 Items",
     x = "Aisle ID",
     y = "Number of Items Ordered"
   ) 
@@ -53,7 +53,7 @@ mutate(
 Column {data-width=500}
 -----------------------------------------------------------------------
 
-### Chart B 
+### Chart B Boxplot of number of aisle selection among departments 
 ```{r}
 instacart %>%
 select(department,order_hour_of_day,aisle) %>%
@@ -66,14 +66,14 @@ summarize(number_ordered = sum(n)) %>%
              y = number_ordered,color = department)) +
   geom_line() +
   labs(
-    title = " Plot of Number of Items Odered with 24h among Departments ",
+    #title = " Plot of Number of Items Odered with 24h among Departments ",
     x = "Hour in a day",
     y = "Number Of Items ordered"
   )
 
 ```
 
-### Chart C
+### Chart C Boxplot of number of aisle selection among departments
 
 ```{r}
 instacart %>%
@@ -81,12 +81,13 @@ select(department,aisle) %>%
 group_by(department,aisle)%>%
 count(aisle)%>%
 summarize(number_ordered = sum(n)) %>%
+  drop_na()%>%
 ungroup%>%
 mutate(department = fct_reorder(department, number_ordered)) %>% 
 plot_ly(x = ~department, y = ~number_ordered, type = "box",
           colors = "Set2") %>%
   layout(
-    title = "Boxplot of number of aisle selection among departments",
+    #title = "Boxplot of number of aisle selection among departments",
     xaxis = list(title = ("Department")),
     yaxis = list(title = ("Number of Items Ordered"))
   )
