@@ -27,7 +27,7 @@ data("instacart")
 Column {data-width=500}
 -----------------------------------------------------------------------
 
-### Chart A Plot of Aisles Ordered More Than 10000 Items
+### Plot of Aisles Ordered More Than 10000 Items
 
 ```{r}
 a = instacart %>%
@@ -55,7 +55,7 @@ ggplotly(a)
 Column {data-width=500}
 -----------------------------------------------------------------------
 
-### Chart B Boxplot of number of aisle selection among departments 
+### Boxplot of number of aisle selection among departments 
 ```{r}
 b = instacart %>%
 select(department,order_hour_of_day,aisle) %>%
@@ -77,7 +77,7 @@ ggplotly(b)
 
 ```
 
-### Chart C Boxplot of number of aisle selection among departments
+### Boxplot of number of aisle selection among departments
 
 ```{r}
 instacart %>%
